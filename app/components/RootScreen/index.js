@@ -1,13 +1,13 @@
 import React from 'react'
 import RootScreen from './component'
-import { useSelector } from 'react-redux'
-import { selectPokemon } from '../../reducers/pokemon'
+import getPokemonService from '../../service/getPokemon'
+import { useAsync } from 'react-async-hook'
 
 const RootScreenContainer = ({ navigation }) => {
-  const pokemon = useSelector(selectPokemon)
-  // TODO call getpokemon
+  // TODO hook into redux
+  const asyncPokemon = useAsync(getPokemonService, [])
   return (
-    <RootScreen navigation={navigation} pokemon={pokemon} />
+    <RootScreen navigation={navigation} asyncPokemon={asyncPokemon} />
   )
 }
 

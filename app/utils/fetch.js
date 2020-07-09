@@ -6,7 +6,7 @@ export const defaultOptions = {
 }
 
 export const throwExceptionErrors = response => {
-  if (!response && !response.code) return
+  if (!response || !response.code) return
   const error = new Error(response.code)
   error.code = response.code || ''
   error.message = response.message

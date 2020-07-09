@@ -3,8 +3,7 @@ import { defaultOptions, throwExceptionErrors, deserializeJsonResponse } from '.
 
 export const GET_POKEMON = 'GET_POKEMON_SERVICE'
 
-// TODO
-export const service = async () => {
+const service = async () => {
   const url = BASE_API_URL + '/pokemon/' + 'ditto' + '/'
   const options = {
     ...defaultOptions,
@@ -13,6 +12,7 @@ export const service = async () => {
   const response = await window.fetch(url, options)
   const pokemon = await deserializeJsonResponse(response)
   throwExceptionErrors(pokemon)
-  console.log('no errors')
-  return pokemon && pokemon.name
+  return pokemon
 }
+
+export default service

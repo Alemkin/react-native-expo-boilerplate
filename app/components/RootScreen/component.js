@@ -3,7 +3,7 @@ import React from 'react'
 import { Container, Text, Button } from 'native-base'
 import { Grid, Row, Col } from 'react-native-easy-grid'
 
-const RootScreen = ({ navigation, loading, error, pokemon }) => {
+const RootScreen = ({ navigation, loading, error, asyncPokemon }) => {
   return (
     <Container>
       <StatusBar style='light' />
@@ -60,25 +60,29 @@ const RootScreen = ({ navigation, loading, error, pokemon }) => {
           </Col>
         </Row>
         {
-          pokemon.name &&
+          (asyncPokemon.result && !asyncPokemon.loading) &&
             <>
               <Row style={{ backgroundColor: '#00CE9F' }}>
                 <Col style={{ alignItems: 'center', justifyContent: 'center' }}>
-                  <Text>{`Name: ${pokemon.name}`}</Text>
+                  <Text>{`Name: ${asyncPokemon.result.name}`}</Text>
                 </Col>
               </Row>
               <Row style={{ backgroundColor: '#00CE9F' }}>
                 <Col size={25} style={{ alignItems: 'center', backgroundColor: 'white', justifyContent: 'center' }}>
-                  <Text>{`Weight: ${pokemon.weight}`}</Text>
+                  <Text>{`Weight: ${asyncPokemon.result.weight}`}</Text>
                 </Col>
                 <Col size={50} style={{ alignItems: 'center', justifyContent: 'center' }}>
-                  <Text>{`Id: ${pokemon.id}`}</Text>
+                  <Text>{`Id: ${asyncPokemon.result.id}`}</Text>
                 </Col>
                 <Col size={25} style={{ alignItems: 'center', backgroundColor: 'white', justifyContent: 'center' }}>
-                  <Text>{`Order: ${pokemon.order}`}</Text>
+                  <Text>{`Order: ${asyncPokemon.result.order}`}</Text>
                 </Col>
               </Row>
             </>
+        }
+        {
+          asyncPokemon.error &&
+            <Text>Error: {asyncPokemon.error.message}</Text>
         }
       </Grid>
     </Container>
