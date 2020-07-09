@@ -5,7 +5,7 @@ import { Container, Content, List, ListItem, Text } from 'native-base'
 const ProfileScreen = ({ navigation }) => {
   return (
     <Container>
-      <StatusBar style='auto' />
+      <StatusBar style='light' />
       <Content>
         <List>
           <ListItem itemDivider>
