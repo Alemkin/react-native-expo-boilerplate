@@ -1,0 +1,17 @@
+{
+  "name": "ExpoBoilerplate",
+  "displayName": "ExpoBoilerplate",
+  "expo": {
+    "name": "ExpoBoilerplate",
+    "slug": "ExpoBoilerplate",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "splash": {
+      "image": "./assets/logo.png",
+      "backgroundColor": "#000000",
+      "resizeMode": "contain"
+    }
+  }
+}
