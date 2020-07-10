@@ -1,4 +1,5 @@
 import { StatusBar } from 'expo-status-bar'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { Container, Content, List, ListItem, Text } from 'native-base'
 
@@ -27,6 +28,10 @@ const ProfileScreen = ({ navigation }) => {
       </Content>
     </Container>
   )
+}
+
+ProfileScreen.propTypes = {
+  navigation: PropTypes.object.isRequired
 }
 
 export default ProfileScreen

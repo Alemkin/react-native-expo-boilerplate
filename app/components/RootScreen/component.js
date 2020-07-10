@@ -1,60 +1,61 @@
 import { StatusBar } from 'expo-status-bar'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { Container, Text, Button } from 'native-base'
 import { Grid, Row, Col } from 'react-native-easy-grid'
 
-const RootScreen = ({ navigation, loading, error, asyncPokemon }) => {
+const RootScreen = ({ navigation, speak, asyncPokemon }) => {
   return (
     <Container>
       <StatusBar style='light' />
       <Grid>
         <Row style={{ backgroundColor: '#635DB7' }}>
           <Col>
-            <Button danger style={{ margin: 5 }}>
+            <Button danger style={{ margin: 5 }} onPress={speak(0)}>
               <Text>Click Me 1!</Text>
             </Button>
           </Col>
           <Col>
-            <Button success style={{ margin: 5 }}>
+            <Button success style={{ margin: 5 }} onPress={speak(1)}>
               <Text>Click Me 2!</Text>
             </Button>
           </Col>
           <Col>
-            <Button primary style={{ margin: 5 }}>
+            <Button primary style={{ margin: 5 }} onPress={speak(2)}>
               <Text>Click Me 3!</Text>
             </Button>
           </Col>
         </Row>
         <Row style={{ backgroundColor: '#635DB7' }}>
           <Col>
-            <Button warning style={{ margin: 5 }}>
+            <Button warning style={{ margin: 5 }} onPress={speak(3)}>
               <Text>Click Me 4!</Text>
             </Button>
           </Col>
           <Col>
-            <Button info style={{ margin: 5 }}>
+            <Button info style={{ margin: 5 }} onPress={speak(4)}>
               <Text>Click Me 5!</Text>
             </Button>
           </Col>
           <Col>
-            <Button dark style={{ margin: 5 }}>
+            <Button dark style={{ margin: 5 }} onPress={speak(5)}>
               <Text>Click Me 6!</Text>
             </Button>
           </Col>
         </Row>
         <Row style={{ backgroundColor: '#635DB7' }}>
           <Col>
-            <Button light style={{ margin: 5 }}>
+            <Button light style={{ margin: 5 }} onPress={speak(6)}>
               <Text>Click Me 7!</Text>
             </Button>
           </Col>
           <Col>
-            <Button danger style={{ margin: 5 }}>
+            <Button danger style={{ margin: 5 }} onPress={speak(7)}>
               <Text>Click Me 8!</Text>
             </Button>
           </Col>
           <Col>
-            <Button success style={{ margin: 5 }}>
+            <Button success style={{ margin: 5 }} onPress={speak(8)}>
               <Text>Click Me 9!</Text>
             </Button>
           </Col>
@@ -87,6 +88,12 @@ const RootScreen = ({ navigation, loading, error, asyncPokemon }) => {
       </Grid>
     </Container>
   )
+}
+
+RootScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  speak: PropTypes.func.isRequired,
+  asyncPokemon: PropTypes.object
 }
 
 export default RootScreen
