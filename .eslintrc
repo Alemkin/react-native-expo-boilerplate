@@ -3,7 +3,7 @@
     "jsx-a11y"
   ],
   "parser": "babel-eslint",
-  "extends": ["standard", "standard-jsx", "plugin:jsx-a11y/recommended"],
+  "extends": ["standard", "standard-jsx", "plugin:jsx-a11y/recommended", "plugin:react-native-a11y/all"],
   "env": {
     "browser": true
   },
